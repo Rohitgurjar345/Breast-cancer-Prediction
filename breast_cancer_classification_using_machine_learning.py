@@ -29,6 +29,40 @@ X_test_scaled = scaler.transform(X_test)
 model = LogisticRegression(max_iter=1000, class_weight='balanced')
 model.fit(X_train_scaled, y_train)
 
+from sklearn.metrics import confusion_matrix, roc_curve, auc
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Predictions
+y_pred = model.predict(X_test_scaled)
+
+# Confusion Matrix
+cm = confusion_matrix(y_test, y_pred)
+
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+
+plt.savefig("images/confusion_matrix.png")
+plt.show()
+
+y_prob = model.predict_proba(X_test_scaled)[:,1]
+
+fpr, tpr, _ = roc_curve(y_test, y_prob)
+roc_auc = auc(fpr, tpr)
+
+plt.plot(fpr, tpr, label=f"AUC = {roc_auc:.2f}")
+plt.plot([0,1],[0,1],'--')
+
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("ROC Curve")
+plt.legend()
+
+plt.savefig("images/roc_curve.png")
+plt.show()
+
 # Save the model and scaler
 pickle.dump(model, open('model.pkl', 'wb'))
 pickle.dump(scaler, open('scaler.pkl', 'wb'))

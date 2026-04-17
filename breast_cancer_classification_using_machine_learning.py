@@ -47,6 +47,7 @@ plt.ylabel("Actual")
 plt.savefig("images/confusion_matrix.png")
 plt.show()
 
+
 y_prob = model.predict_proba(X_test_scaled)[:,1]
 
 fpr, tpr, _ = roc_curve(y_test, y_prob)

@@ -23,7 +23,6 @@
 ## 📋 Table of Contents
 
 - [About the Project](#-about-the-project)
-- [Screenshots]
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
 - [Project Architecture](#-project-architecture)
@@ -55,13 +54,6 @@ This project demonstrates a **complete ML lifecycle**: from data preprocessing a
 
 ---
 
-## 📸 Screenshots
-
-### 🖥️ Application Interface
-![App Interface](images/app.png)
-
-### 🔍 Prediction Output
-![Prediction Output](images/output.png)
 
 ## ✨ Key Features
 
@@ -258,6 +250,15 @@ Breast-cancer-Prediction/
 ```
 
 ---
+
+
+## 📸 Screenshots
+
+### 🖥️ Application Interface
+![App Interface](./images/app.png)
+
+### 🔍 Prediction Output
+![Prediction Output](./images/output.png)
 
 ## 🔮 Future Improvements
 
